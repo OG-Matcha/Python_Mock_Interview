@@ -8,7 +8,7 @@ The QuestionsGenerator class uses Generative AI to generate questions for mock i
     ```python
     >>> from questions_generator import QuestionsGenerator
     >>> generator = QuestionsGenerator('111403538')
-    >>> generator.start_process()
+    >>> generator.start_process(user_content)
     ```
 """
 
@@ -30,7 +30,7 @@ class QuestionsGenerator:
     ## Example:
     ```python
     >>> generator = QuestionsGenerator('111403538')
-    >>> generator.start_process()
+    >>> generator.start_process(user_content)
     ```
     """
 
@@ -173,6 +173,12 @@ class QuestionsGenerator:
     def start_process(self, user_content: str) -> str:
         """
         Starts the process of generating questions and store it in new json file.
+
+        Args:
+            user_content (str): The user response with the question.
+
+        Returns:
+            str: The generated questions.
         """
         model = "gpt-4o"
         self._add_conversation_history(user_content)
